@@ -37,7 +37,7 @@ public class LED extends SpartronicsSubsystem {
     public static LED getInstance() {
         if (sInstance == null) {
             sInstance = new LED();
-            mBlingState = BlingState.OFF;
+            mBlingState = BlingState.BLING_COMMAND_OFF;
         }
         return sInstance;
     }
