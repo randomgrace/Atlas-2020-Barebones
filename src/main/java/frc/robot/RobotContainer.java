@@ -57,15 +57,15 @@ public class RobotContainer {
    */
   public RobotContainer() {
     // initialize the robot subsystems
-    mDrivetrain = Drivetrain.getInstance();
-
-    final CANProbe canProbe = CANProbe.getInstance();
-    final ArrayList<String> canReport = canProbe.getReport();
-    Logger.notice("CANDevicesFound: " + canReport);
-    final int numDevices = canProbe.getCANDeviceCount();
-    SmartDashboard.putString("CANBusStatus",
-            numDevices == RobotMapConstants.kNumCANDevices ? "OK"
-                : ("" + numDevices + "/" + RobotMapConstants.kNumCANDevices));
+//     mDrivetrain = Drivetrain.getInstance();
+// 
+//     final CANProbe canProbe = CANProbe.getInstance();
+//     final ArrayList<String> canReport = canProbe.getReport();
+//     Logger.notice("CANDevicesFound: " + canReport);
+//     final int numDevices = canProbe.getCANDeviceCount();
+//     SmartDashboard.putString("CANBusStatus",
+//             numDevices == RobotMapConstants.kNumCANDevices ? "OK"
+//                 : ("" + numDevices + "/" + RobotMapConstants.kNumCANDevices));
 
 
     // Configure the button bindings
