@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 	// Set Bling state to OFF
-	SmartDashboard.putString("robotInit/LED State: ", BlingState.BLING_COMMAND_OFF);
+	SmartDashboard.putString("robotInit/LED State: BLING_COMMAND_OFF");
 	Logger.notice("@robotInit: Requested BlingState.BLING_COMMAND_OFF");
     LED.getInstance().setBlingState(BlingState.BLING_COMMAND_OFF);
 
