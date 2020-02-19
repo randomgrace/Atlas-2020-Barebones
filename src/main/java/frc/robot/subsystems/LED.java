@@ -70,11 +70,20 @@ public class LED extends SpartronicsSubsystem {
      * This enum is giving the possible styles we can have the Arduino express.
      */
     public enum BlingState {
-        OFF("0"), // call constructor w/ bling code
-        DISABLED("1"), // disabled
-        INTAKE_UP("2"), // intake_up
-        INTAKE_DOWN("3"), // intake_down
-        LAUNCH("4"); // semicolon to state more to follow
+        // blingStates MUST match Arduino sketch code
+        // bling code is passed in for use in the BlingState methods
+        BLING_COMMAND_OFF("0"), // turn off bling
+        BLING_COMMAND_STARTUP("1"), // Startup phase
+        BLING_COMMAND_DISABLED("2"), // robot powered on but disabled (in disabledInit())
+        BLING_COMMAND_AUTOMODE("3"), // ...
+        BLING_COMMAND_SHOOTING("4"), // ...
+        BLING_COMMAND_PICKUP("5"), // ...
+        BLING_COMMAND_LOADING("6"), // ...
+        BLING_COMMAND_CLIMBING("7"), // ...
+        BLING_COMMAND_VISION("8"), // ...
+        BLING_COMMAND_DEFAULT("9"), // ...
+        ; // semicolon to state more to follow
+
 
         private final String blingCode;
 
