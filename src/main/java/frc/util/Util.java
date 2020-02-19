@@ -74,7 +74,7 @@ public class Util
     public static String getGameSpecificMessage()
     {
 //         Timer t = new Timer();
-//         String result = "";
+        String result = "";
 //         DriverStation ds = DriverStation.getInstance();
 //         t.start();
 //         while(!t.hasPeriodPassed(3)) // wait for up to 3 sec
