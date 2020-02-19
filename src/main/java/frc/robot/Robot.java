@@ -10,6 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.LED;
+import frc.robot.subsystems.LED.BlingState;
 
 
 /**
@@ -32,6 +35,13 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+	// Set Bling state to OFF
+	SmartDashboard.putString("robotInit/LED State: ", BlingState.BLING_COMMAND_OFF);
+	Logger.notice("@robotInit: Requested BlingState.BLING_COMMAND_OFF");
+    LED.getInstance().setBlingState(BlingState.BLING_COMMAND_OFF);
+
+    // print out available serial ports for information
+    LED.getInstance().enumerateAvailablePorts();
   }
 
   /**
@@ -57,6 +67,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
+    Logger.notice("@disabledInit: Requested BlingState.BLING_COMMAND_DISABLED");
+    LED.getInstance().setBlingState(BlingState.BLING_COMMAND_DISABLED);
   }
 
   @Override
@@ -68,8 +80,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = null;
-    Logger.notice("Autonomous disabled");
+    m_autonomousCommand = mRobotContainer.getAutonomousCommand();
+    Logger.notice("@autonomousInit: Requested BlingState.BLING_COMMAND_AUTOMODE");
+	LED.getInstance().setBlingState(BlingState.BLING_COMMAND_AUTOMODE);
   }
 
   /**
@@ -77,7 +90,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    Logger.notice("autonomousPeriodic: Autonomous disabled");
+//    Logger.notice("autonomousPeriodic: Autonomous disabled");
   }
 
   @Override
@@ -87,10 +100,11 @@ public class Robot extends TimedRobot {
     {
       Logger.error("Error: there shouldn't be an autonomous command!");
       m_autonomousCommand.cancel();
-      m_autonomousCommand = null;
+//      m_autonomousCommand = null;
     }
 
-    Logger.notice("teleop initalized.");
+    Logger.notice("@teleopInit: Requested BlingState.BLING_COMMAND_STARTUP");
+	LED.getInstance().setBlingState(BlingState.BLING_COMMAND_STARTUP);
   }
 
   /**
@@ -105,6 +119,8 @@ public class Robot extends TimedRobot {
   public void testInit() {
     // Cancels all running commands at the start of test mode.
     CommandScheduler.getInstance().cancelAll();
+	Logger.notice("@testInit: Requested BlingState.BLING_COMMAND_DEFAULT");
+    LED.getInstance().setBlingState(BlingState.BLING_COMMAND_DEFAULT);
   }
 
   /**

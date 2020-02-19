@@ -53,6 +53,7 @@ public class LED extends SpartronicsSubsystem {
             mBlingPort.openPort();
 
             logInitialized(true);
+			Logger.notice("LED: Initialized!");
         } catch (Exception e) {
             logException("LED: Couldn't initialize SerialPort", e);
             logInitialized(false);
