@@ -72,7 +72,7 @@ public class RobotContainer {
     configureButtonBindings();
 
     // set default commands
-    mDrivetrain.setDefaultCommand(new TeleopDrivetrain(mDrivetrain));
+//    mDrivetrain.setDefaultCommand(new TeleopDrivetrain(mDrivetrain));
   }
 
   /**
