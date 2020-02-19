@@ -110,21 +110,21 @@ public class RobotContainer {
         // // initialize drivetrain buttons
         // TODO important: quick turn needs testing & validation!
         // Turn to 180 degrees, with a 5 second timeout
-        new JoystickButton(mDriverController, OIConstants.kQuickTurnDriveStickButton)
-              .whenPressed(new QuickTurnDrivetrain(mDrivetrain).withTimeout(5));
-
-        // TODO important: drive straight needs testing & validation!
-        new JoystickButton(mDriverController, OIConstants.kDriveStraightDriveStickButton).whenHeld(new PIDCommand(
-                new PIDController(DriveStraightConstants.kP, DriveStraightConstants.kI, DriveStraightConstants.kD),
-                // Close the loop on the turn rate
-                () -> mDrivetrain.getIMUHeading().getDegrees(),
-                // Setpoint is 0
-                0,
-                // Pipe the output to the turning controls
-                output -> mDrivetrain.arcadeDrive(mDriverController.getY() * getScaledThrottle(), output),
-                // Require the robot drive
-                mDrivetrain
-            ));
+//         new JoystickButton(mDriverController, OIConstants.kQuickTurnDriveStickButton)
+//               .whenPressed(new QuickTurnDrivetrain(mDrivetrain).withTimeout(5));
+// 
+//         // TODO important: drive straight needs testing & validation!
+//         new JoystickButton(mDriverController, OIConstants.kDriveStraightDriveStickButton).whenHeld(new PIDCommand(
+//                 new PIDController(DriveStraightConstants.kP, DriveStraightConstants.kI, DriveStraightConstants.kD),
+//                 // Close the loop on the turn rate
+//                 () -> mDrivetrain.getIMUHeading().getDegrees(),
+//                 // Setpoint is 0
+//                 0,
+//                 // Pipe the output to the turning controls
+//                 output -> mDrivetrain.arcadeDrive(mDriverController.getY() * getScaledThrottle(), output),
+//                 // Require the robot drive
+//                 mDrivetrain
+//             ));
     }
 
     public static final double getScaledThrottle()
